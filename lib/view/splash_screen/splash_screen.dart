@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:ecommerce/utils/color_constants.dart';
+import 'package:ecommerce/utils/image_constant.dart';
 import 'package:ecommerce/view/onboarding_screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
+      Navigator.push(
         context, MaterialPageRoute(
           builder: (context) => OnboardingScreen(),));
     },);
@@ -26,12 +28,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: Center(
+        body:  Center(
           child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("assets/images/Group 34010.png"),
+          Image.asset(
+           ImageConstant.MYAPPLOGO,
+            height: 100,
+            width: 125,
+            fit: BoxFit.fill,
+            ),
           SizedBox(
             width: 9,
           ),
@@ -39,12 +45,13 @@ class _SplashScreenState extends State<SplashScreen> {
             "Stylish",
             style: TextStyle(
                 fontSize: 40,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.italic,
-                color: const Color.fromARGB(255, 247, 29, 14)),
+                color: ColorConstants.PRIMARY),
           )
         ],
       )),
-    ));
+    
+    );
   }
 }
