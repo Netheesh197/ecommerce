@@ -4,6 +4,7 @@ import 'package:ecommerce/utils/color_constants.dart';
 import 'package:ecommerce/utils/image_constant.dart';
 import 'package:ecommerce/view/onboarding_screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 3), () {
-      Navigator.push(
+      Navigator.pushReplacement(
         context, MaterialPageRoute(
           builder: (context) => OnboardingScreen(),));
     },);
@@ -43,11 +44,12 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             "Stylish",
-            style: TextStyle(
+            style: GoogleFonts.libreCaslonText(
+             textStyle:  TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
                 color: ColorConstants.PRIMARY),
+            )
           )
         ],
       )),
