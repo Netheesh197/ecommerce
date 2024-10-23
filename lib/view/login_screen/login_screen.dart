@@ -79,7 +79,7 @@
 //              CircleAvatar(
 //               radius: 30,
 //               backgroundColor: const Color.fromARGB(255, 246, 218, 222),
-//               child: IconButton(onPressed: () {}, 
+//               child: IconButton(onPressed: () {},
 //               icon: Image.asset("assets/images/googlelogo.png")),
 //             ),
 //             SizedBox(height: 26,),
@@ -95,7 +95,7 @@
 //                 ),
 //                 InkWell(
 //                   onTap: () {
-                    
+
 //                   },
 //                   child: Text("Sign Up",
 //                   style: GoogleFonts.montserrat(
@@ -112,9 +112,13 @@
 //   }
 // }
 
-
 import 'package:ecommerce/utils/color_constants.dart';
+import 'package:ecommerce/view/forgot_password_screen/forgotpassword.dart';
+import 'package:ecommerce/view/get_started_screen/get_started_screen.dart';
+import 'package:ecommerce/view/globalwidgets/custom_inpot_logos.dart';
 import 'package:ecommerce/view/globalwidgets/custom_input_filed.dart';
+import 'package:ecommerce/view/globalwidgets/custom_input_login.dart';
+import 'package:ecommerce/view/signup_screen/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -131,35 +135,115 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 19,horizontal: 42),
+          padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 42),
           child: Column(
             children: [
               Text("Welcome Back!",
-              style:GoogleFonts.montserrat(
-                fontWeight: FontWeight.bold,
-                fontSize: 36,
-                color: ColorConstants.BLACK,
-              )
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 36,
+                    color: ColorConstants.BLACK,
+                  )),
+              SizedBox(
+                height: 36,
               ),
-              SizedBox(height: 36,),
               CustomInputTextfield(
                 hinttext: "Username or Email",
                 prefixIcon: Icons.person,
               ),
-              SizedBox(height: 31,),
+              SizedBox(
+                height: 31,
+              ),
               CustomInputTextfield(
                 hinttext: "Password",
                 prefixIcon: Icons.lock,
                 suffixIcon: Icons.visibility,
               ),
-              SizedBox(height: 9,),
+              SizedBox(
+                height: 9,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("forgot password"),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context, MaterialPageRoute(
+                          builder: (context) => Forgotpassword(),));
+                    },
+                    child: Text("forgot password?",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: ColorConstants.PRIMARY
+                    ),),
+                  ),
                 ],
-              )
-            ],
+              ),
+              SizedBox(
+                height: 52,
+              ),
+              CustomInputLogin(text: 'Login',
+              onButtonPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context, MaterialPageRoute(
+                    builder: (context) => 
+                    GetStartedScreen(),
+                    ),
+                    (route) => false,);
+              },
+              ),
+              SizedBox(height: 75,),
+              Text("- OR Continue with -",
+              style: GoogleFonts.montserrat(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: ColorConstants.ORCOLOR
+              ),),
+              SizedBox(height: 20,),
+               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomInputLogos(
+                    image: "assets/images/googlelogo.png",
+                  ),
+                  SizedBox(width: 10,),
+                  CustomInputLogos(
+                  image: "assets/images/apple 1.png",
+                  ),
+                  SizedBox(width: 10,),
+                  CustomInputLogos(
+                    image: "assets/images/facebooklogo.png",
+                  )
+                ],
+               ),
+               SizedBox(height: 28,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Create An Account",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: ColorConstants.ORCOLOR
+                    ),),
+                    SizedBox(width: 5,),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context, MaterialPageRoute(
+                            builder: (context) => Signup(),));
+                      },
+                      child: Text("Sign UP",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: ColorConstants.PRIMARY
+                      ),),
+                    ),
+                  ],
+                )
+             ],
           ),
         ),
       ),

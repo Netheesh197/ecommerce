@@ -12,4 +12,5 @@ class ColorConstants{
    static const ORCOLOR=Color(0xff575757);
    static const GOOGLE=Color(0xffFCF3F6);
    static const HINTTEXT1=Color(0xff676767);
+   static const WHITE=Color(0xffFFFFFF);
 }
