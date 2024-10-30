@@ -1,3 +1,4 @@
+import 'package:ecommerce/utils/color_constants.dart';
 import 'package:ecommerce/view/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: ColorConstants.SCAFFOLDBG
+      ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );

@@ -1,6 +1,7 @@
 import 'package:ecommerce/utils/color_constants.dart';
 import 'package:ecommerce/utils/image_constant.dart';
 import 'package:ecommerce/view/globalwidgets/custom_input_login.dart';
+import 'package:ecommerce/view/home_screen/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,7 +56,10 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                   ),
                   SizedBox(height: 44,),
-                  CustomInputLogin(text: "Get Started")
+                  CustomInputLogin(text: "Get Started",
+                  onButtonPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homescreen(),));
+                  },)
                 ],
                ),
             )
